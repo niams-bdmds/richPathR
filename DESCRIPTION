@@ -1,0 +1,24 @@
+Package: richPathR
+Type: Package
+Title: This package is used for large scale mining and exploratory visualization of gene set enrichment using EnrichR
+Version: 0.1.0
+Author: Regmi Binod, Brooks Stephen, Andrew Uhlman, Sun Hong-Wei
+Maintainer: The package maintainer <binodregmi30@gmail.com>
+Description: More about what it does (maybe more than one line)
+    Use four spaces when indenting paragraphs within the Description.
+Imports:
+  enrichR,
+  xlsx,
+  dplyr,
+  ggplot2,
+  tidyr,
+  readxl,
+  purrr,
+  stringr,
+  plotly,
+  pheatmap,
+  filesstrings 
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.2.0
