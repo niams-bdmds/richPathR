@@ -5,9 +5,9 @@ Gene set enrichment analysis (GSEA) is an important step for disease and drug
 discovery. Omics profiling of tissue or cells of patients and healthy
 individuals generated gene lists that need to be further investigated in the
 known biological context. Multiple public data sources with annotated gene sets
-are available for GSEA and enrichR is the most population web application still
-it requires custom tool for large-scale mining. richPathR package is a collection
-of R functions that helps researchers with enrichment analysis using EnrichR.
+are available for GSEA and enrichR is the most popular web application still
+requiring custom tool for large-scale mining. richPathR package is a collection
+of the R functions that helps researchers with enrichment analysis using EnrichR.
 
 ## DEPENDENCIES
 
