@@ -1,6 +1,6 @@
 #' Generate horizontal bar plot   of terms  count across gene list
 #' This function generates a horizontal bar plot of term count across the gene
-#' list for top 30 most significant terms based on combined score.
+#' list for top 30 most significant terms based on combined score (default 5). 
 #' This bar plot visualizes how many terms (pathways) are distributed
 #' in the gene lists.
 
