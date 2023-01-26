@@ -25,8 +25,8 @@ therefore we recommend using these or later versions:
 6. tidyr(1.2.0)
 7. xlsx(0.6.5)  
 8. R(4.1.3)
-9. devtools(2.4.3)
-10. roxygen2(7.2.0)
+9. devtools(2.4.3) only developer needs this package
+10. roxygen2(7.2.0)	only developer needs this package
 
 ### INSTALLATION
 
