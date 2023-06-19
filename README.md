@@ -40,7 +40,7 @@ Test data are available in /Data.
 ### CALL ALL REQUIRED PACKAGE
 
 Make sure the above packes are available in your computer. For calling all these
-packages, the following function can be used:
+packages, the following function can be implemented:
 
 call_required_packages() 
 
