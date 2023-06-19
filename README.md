@@ -30,8 +30,7 @@ therefore we recommend using these or later versions:
 
 ### INSTALLATION
 
-Package can be installed directly from The R Archive (CRAN) or the source code
-can be downloaed from github (https://github.com/niams-bdmds/richPathR). 
+Package can be installed directly from github (https://github.com/niams-bdmds/richPathR). 
 
 ### TEST DATA
 
