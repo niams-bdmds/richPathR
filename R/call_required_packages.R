@@ -19,5 +19,5 @@ call_required_packages <- function(){
   library(plotly)
   library(pheatmap)
   library(filesstrings)
-  library(VennDiagram)
+  library(igraph)
 }
