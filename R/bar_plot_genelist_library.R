@@ -20,5 +20,5 @@ bar_plot_genelist_library <- function (enrichr_df, minimum_combined_score = 5){
   filter_significant_terms <- enrichr_df %>%
     filter(., Combined.Score > minimum_combined_score)
   plot <- ggplot(filter_significant_terms) + geom_jitter(width = 0.1, size = 0.8) +
-    geom_bar(aes(y = library, fill = gene_list )) ++lado++
+    geom_bar(aes(y = library, fill = gene_list ))
   return(plot)}
