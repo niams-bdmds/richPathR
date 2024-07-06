@@ -21,3 +21,20 @@ call_required_packages <- function(){
   library(filesstrings)
   library(igraph)
 }
+
+
+# install required packages
+install_required_packages <- function(){
+  install.packages("enrichR")
+  install.packages("xlsx")
+  install.packages("dplyr")
+  install.packages("ggplot2")
+  install.packages("tidyr")
+  install.packages("readxl")
+  install.packages("purrr")
+  install.packages("stringr")
+  install.packages("plotly")
+  install.packages("pheatmap")
+  install.packages("filesstrings")
+  install.packages("igraph")
+}
