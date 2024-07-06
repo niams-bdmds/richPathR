@@ -18,16 +18,7 @@
 
 #' @export
 bar_plot_count <- function(enrichr_df, value = 5, value_type = "minimum_combined_score") {
-  filter_significant_terms <- list()
-  if (value_type == "minimum_combined_score") {
-    filter_significant_terms <- enrichr_df %>% filter(Combined.Score > value)
-  } else if (value_type == "minimum_p_value") {
-    filter_significant_terms <- enrichr_df %>% filter(P.value > value)
-  } else {
-    print("Unknown value type")
-    return
-  }
-
+  filter_significant_terms <- get_significant_terms(enrichr_df, value, value_type)
 
   plot <- ggplot(filter_significant_terms, aes(gene_list)) +
     geom_bar(fill = "blue") +
