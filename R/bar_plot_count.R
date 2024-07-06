@@ -13,7 +13,8 @@
 #' @return A bar plot.
 
 #' @example
-#' bar_plot_count(enrichr_df = enrichr_df, minimum_combined_score)
+#' bar_plot_count(enrichr_df = enrichr_df, value = 2, value_type = 'minimum_combined_score')
+#' bar_plot_count(enrichr_df = enrichr_df, value = 0.3, value_type = 'minimum_p_value')
 
 #' @export
 bar_plot_count <- function(enrichr_df, value = 5, value_type = "minimum_combined_score") {
