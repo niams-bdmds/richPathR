@@ -1,24 +1,24 @@
 #' Generate horizontal bar plot   of terms  count across gene list
 #' This function generates a horizontal bar plot of term count across the gene
-#' list for top 30 most significant terms based on combined score (default 5). 
+#' list for top 30 most significant terms based on combined score (default 5).
 #' This bar plot visualizes how many terms (pathways) are distributed
 #' in the gene lists.
 
-#'@param enrichr_df A data frame generated  by implementing the function
+#' @param enrichr_df A data frame generated  by implementing the function
 #'  enrichr_df
 
-#'@param minimum_combined_score A integer value below which the combined score
+#' @param minimum_combined_score A integer value below which the combined score
 #' is set to be insignificant. Default is 5.
 
-#'@return A bar plot.
+#' @return A bar plot.
 
-#'@example
-#' bar_genelist_terms(enrichr_df = enrichr_df, minimum_combined_score = 5)
+#' @example
+#' bar_genelist_terms(enrichr_df = enrichr_df, threshold_value = 2, threshold_value_type = 'minimum_combined_score')
+#' bar_genelist_terms(enrichr_df = enrichr_df, threshold_value = 0.3, threshold_value_type = 'minimum_p_value')
 
 #' @export
-bar_genelist_terms <- function (enrichr_df, minimum_combined_score = 5){
-  filter_significant_terms <- enrichr_df %>%
-    filter(., Combined.Score > minimum_combined_score)
+bar_genelist_terms <- function(enrichr_df, threshold_value = 5, threshold_value_type = "minimum_combined_score") {
+  filter_significant_terms <- get_significant_terms(enrichr_df, threshold_value, threshold_value_type)
 
   filter_significant_terms_sorted <- filter_significant_terms %>%
     arrange(desc(Combined.Score))
@@ -29,7 +29,7 @@ bar_genelist_terms <- function (enrichr_df, minimum_combined_score = 5){
     geom_bar() +
     coord_flip() +
     labs(x = "", y = "Comparison Count") +
-    scale_y_continuous(breaks = c(0,1,2,3)) +
+    scale_y_continuous(breaks = c(0, 1, 2, 3)) +
     theme(axis.text.y = element_text(size = 6)) +
     theme_bw()
   return(plot)

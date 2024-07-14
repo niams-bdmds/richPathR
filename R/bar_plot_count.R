@@ -17,8 +17,8 @@
 #' bar_plot_count(enrichr_df = enrichr_df, value = 0.3, value_type = 'minimum_p_value')
 
 #' @export
-bar_plot_count <- function(enrichr_df, value = 5, value_type = "minimum_combined_score") {
-  filter_significant_terms <- get_significant_terms(enrichr_df, value, value_type)
+bar_plot_count <- function(enrichr_df, threshold_value = 5, threshold_value_type = "minimum_combined_score") {
+  filter_significant_terms <- get_significant_terms(enrichr_df, threshold_value, threshold_value_type)
 
   plot <- ggplot(filter_significant_terms, aes(gene_list)) +
     geom_bar(fill = "blue") +
