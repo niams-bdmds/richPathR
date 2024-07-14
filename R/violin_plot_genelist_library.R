@@ -5,24 +5,24 @@
 #' @param enrichr_df
 #'  A data frame generated  by implementing the function enrichr_df
 
-#'@param minimum_combined_score
-#'A integer value below which the combined score is set to be insignificant.
+#' @param minimum_combined_score
+#' A integer value below which the combined score is set to be insignificant.
 #' Default is 5.
 
-#'@return
+#' @return
 #' A violin plot
 
-#'@example
-#' violin_plot_genelist_library(enrichr_df = enrichr_df, minimum_combined_score )
+#' @example
+#' violin_plot_genelist_library(enrichr_df = enrichr_df, threshold_value = 2, threshold_value_type = 'minimum_combined_score')
+#' violin_plot_genelist_library(enrichr_df = enrichr_df, threshold_value = 0.3, threshold_value_type = 'minimum_p_value')
 
-violin_plot_genelist_library <- function (enrichr_df, minimum_combined_score = 5){
-  filter_significant_terms <- enrichr_df %>%
-  filter(., Combined.Score > minimum_combined_score)
+violin_plot_genelist_library <- function(enrichr_df, threshold_value = 5, threshold_value_type = "minimum_combined_score") {
+  filter_significant_terms <- get_significant_terms(enrichr_df, threshold_value, threshold_value_type)
 
   plot <- filter_significant_terms %>%
-  ggplot(aes(x = library_abbrev, y = log2(Combined.Score), fill = gene_list)) +
-  theme(axis.text.x = element_text(angle = 90)) +
-  geom_violin()
+    ggplot(aes(x = library_abbrev, y = log2(Combined.Score), fill = gene_list)) +
+    theme(axis.text.x = element_text(angle = 90)) +
+    geom_violin()
 
   return(plot)
 }
