@@ -11,8 +11,8 @@ get_significant_terms <- function(enrichr_df, value, value_type) {
     significant_terms <- list()
     if (value_type == "minimum_combined_score") {
         significant_terms <- enrichr_df %>% filter(., Combined.Score > value)
-    } else if (value_type == "minimum_p_value") {
-        significant_terms <- enrichr_df %>% filter(., P.value > value)
+    } else if (value_type == "p_value_cutoff") {
+        significant_terms <- enrichr_df %>% filter(., P.value < value)
     } else {
         print(paste("Unknown value_type:", value_type))
         return(significant_terms)
