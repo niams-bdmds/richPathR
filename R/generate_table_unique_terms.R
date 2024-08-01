@@ -15,9 +15,8 @@
 #' enrichr_unique_terms(enrichr_df = x, minimum_combined_score = 5)
 
 #' @export
-enrichr_unique_terms <- function (enrichr_df, minimum_combined_score = 5){
-  filter_significant_terms <- enrichr_df %>%
-    filter(., Combined.Score > minimum_combined_score)
+enrichr_unique_terms <- function (enrichr_df, value = 5, value_type = "minimum_combined_score"){
+  filter_significant_terms <- get_significant_terms(enrichr_df, value, value_type)
 
   terms_unique <- filter_significant_terms %>%
     group_by(Term) %>% summarise(count=n()) %>% filter(count == 1)

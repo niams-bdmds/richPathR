@@ -12,9 +12,8 @@
 #'@example
 #' enrichr_ubiquitous_terms(enrichr_df = enrichr_df, minimum_combined_score )
 
-enrichr_ubiquitous_terms <- function(enrichr_df, minimum_combined_score = 5){
-  filter_significant_terms <- enrichr_df %>%
-    filter(., Combined.Score > minimum_combined_score)
+enrichr_ubiquitous_terms <- function(enrichr_df, value = 5, value_type = "minimum_combined_score"){
+  filter_significant_terms <- get_significant_terms(enrichr_df, value, value_type)
 
   ubiquitous_term_count <- filter_significant_terms %>%
     group_by(Term) %>% summarise(count=n())

@@ -14,9 +14,8 @@
 #' violin_plot_genelist(enrichr_df = enrichr_df, minimum_combined_score)
 
 #' @export
-violin_plot_genelist <- function (enrichr_df, minimum_combined_score = 5){
-  filter_significant_terms <- enrichr_df %>%
-    filter(., Combined.Score > minimum_combined_score)
+violin_plot_genelist <- function (enrichr_df, value = 5, value_type = "minimum_combined_score" ){
+  filter_significant_terms <- get_significant_terms(enrichr_df, value, value_type)
 
   plot <- ggplot(filter_significant_terms, aes(gene_list, log2(Combined.Score),
     fill = gene_list)) +

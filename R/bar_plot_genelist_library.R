@@ -16,9 +16,8 @@
 #' bar_plot_genelist_library(enrichr_df = enrichr_df, minimum_combined_score)
 
 #'@export
-bar_plot_genelist_library <- function (enrichr_df, minimum_combined_score = 5){
-  filter_significant_terms <- enrichr_df %>%
-    filter(., Combined.Score > minimum_combined_score)
+bar_plot_genelist_library <- function (enrichr_df, value = 5, value_type = "minimum_combined_score"){
+  filter_significant_terms <- get_significant_terms(enrichr_df, value, value_type)
   plot <- ggplot(filter_significant_terms) + geom_jitter(width = 0.1, size = 0.8) +
     geom_bar(aes(y = library, fill = gene_list ))
   return(plot)}

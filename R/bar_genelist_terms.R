@@ -1,6 +1,6 @@
 #' Generate horizontal bar plot   of terms  count across gene list
 #' This function generates a horizontal bar plot of term count across the gene
-#' list for top 30 most significant terms based on combined score (default 5). 
+#' list for top 30 most significant terms based on combined score (default 5).
 #' This bar plot visualizes how many terms (pathways) are distributed
 #' in the gene lists.
 
@@ -16,15 +16,11 @@
 #' bar_genelist_terms(enrichr_df = enrichr_df, minimum_combined_score = 5)
 
 #' @export
-bar_genelist_terms <- function (enrichr_df, minimum_combined_score = 5){
-  filter_significant_terms <- enrichr_df %>%
-    filter(., Combined.Score > minimum_combined_score)
-
+bar_genelist_terms <- function (enrichr_df, value = 5, value_type = "minimum_combined_score"){
+  filter_significant_terms <- get_significant_terms(enrichr_df, value, value_type)
   filter_significant_terms_sorted <- filter_significant_terms %>%
     arrange(desc(Combined.Score))
-
   top_30_terms <- top_n(filter_significant_terms_sorted, 30, Combined.Score)
-
   plot <- ggplot(top_30_terms, aes(reorder(Term, table(Term)[Term]), fill = gene_list)) +
     geom_bar() +
     coord_flip() +
